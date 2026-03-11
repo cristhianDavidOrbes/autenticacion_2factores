@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Segura</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Biblioteca Segura</h1>
+      <p>Flujo: Login -> Codigo 2FA -> Dashboard por rol</p>
+    </header>
+
+    <main class="container">
+      <section id="screen-login" class="screen card" aria-labelledby="login-title">
+        <h2 id="login-title">Inicio de sesion</h2>
+        <form id="form-login" class="form-grid">
+          <label for="login-email">Correo</label>
+          <input id="login-email" name="email" type="email" required />
+
+          <label for="login-password">Contrasena</label>
+          <input id="login-password" name="password" type="password" required />
+
+          <button type="submit">Continuar a 2FA</button>
+        </form>
+      </section>
+
+      <section id="screen-2fa" class="screen card" aria-labelledby="twofa-title" hidden>
+        <h2 id="twofa-title">Validacion 2FA</h2>
+        <p class="muted">
+          Se envio un codigo de 4 digitos al correo:
+          <strong id="twofa-email-label"></strong>
+        </p>
+        <form id="form-2fa" class="form-grid">
+          <label for="twofa-code">Codigo de seguridad</label>
+          <input
+            id="twofa-code"
+            name="codigo"
+            type="text"
+            maxlength="4"
+            pattern="[0-9]{4}"
+            required
+          />
+
+          <div class="actions">
+            <button type="submit">Iniciar sesion</button>
+            <button id="btn-back-login" type="button" class="secondary">
+              Volver
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section
+        id="screen-dashboard"
+        class="screen card"
+        aria-labelledby="dashboard-title"
+        hidden
+      >
+        <header class="dashboard-header">
+          <h2 id="dashboard-title">Dashboard</h2>
+          <p class="muted">Correo: <strong id="user-email">-</strong></p>
+          <p class="muted">Rol: <strong id="user-role">-</strong></p>
+        </header>
+
+        <section class="token-panel" aria-labelledby="tokens-title">
+          <h3 id="tokens-title">Tokens de sesion</h3>
+
+          <label for="access-token">Access Token</label>
+          <textarea id="access-token" rows="3" readonly></textarea>
+
+          <label for="refresh-token">Refresh Token</label>
+          <textarea id="refresh-token" rows="3" readonly></textarea>
+
+          <div class="actions">
+            <button id="btn-refresh-token" type="button">Refresh token</button>
+            <button id="btn-logout" type="button" class="secondary">Cerrar sesion</button>
+          </div>
+        </section>
+
+        <section class="role-panel" aria-labelledby="role-title">
+          <h3 id="role-title">Panel por rol</h3>
+
+          <article id="student-panel" hidden>
+            <p>Vista de estudiante.</p>
+            <button id="btn-mi-espacio" type="button">Ver mi espacio</button>
+          </article>
+
+          <article id="admin-panel" hidden>
+            <p>Vista de administrador.</p>
+            <button id="btn-dashboard-admin" type="button">Ver dashboard admin</button>
+          </article>
+        </section>
+      </section>
+
+      <aside class="card" aria-labelledby="response-title">
+        <h2 id="response-title">Respuesta del servidor</h2>
+        <pre id="output">Esperando acciones.</pre>
+      </aside>
+    </main>
+  </body>
+</html>
