@@ -1,0 +1,150 @@
+:root {
+  --bg: #eef4fb;
+  --card: #ffffff;
+  --text: #202637;
+  --muted: #5e6a84;
+  --line: #d4ddeb;
+  --accent: #1f7a8c;
+  --accent-hover: #145565;
+  --danger: #7a2f46;
+  --danger-hover: #5f2134;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Verdana", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #e9f4ff 0%, var(--bg) 62%);
+}
+
+.site-header {
+  text-align: center;
+  padding: 1.8rem 1rem 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.site-header p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+}
+
+.container {
+  width: min(980px, 94%);
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgb(31 122 140 / 8%);
+}
+
+.screen h2 {
+  margin: 0 0 0.75rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.58rem;
+}
+
+label {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  padding: 0.58rem 0.65rem;
+  background: #fbfcff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.62rem 0.8rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button.secondary {
+  background: var(--danger);
+}
+
+button.secondary:hover {
+  background: var(--danger-hover);
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-header p {
+  margin: 0.3rem 0;
+}
+
+.token-panel {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.58rem;
+}
+
+.role-panel {
+  margin-top: 1rem;
+}
+
+.role-panel article {
+  border: 1px dashed var(--line);
+  border-radius: 0.55rem;
+  padding: 0.8rem;
+}
+
+#output {
+  margin: 0;
+  min-height: 210px;
+  max-height: 330px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: #f7fbff;
+  padding: 0.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.86rem;
+}
